@@ -9,13 +9,14 @@ terraform {
 
 provider "google" {
   # Configuration options
-  project = "de-zoomcamp-464614"
-  region  = "us-central1"
+  credentials = file(var.credentials)
+  project = var.project
+  region  = var.region
 }
 
 resource "google_storage_bucket" "demo-bucket" {
-  name          = "terra-demo-bucket-2025"
-  location      = "US"
+  name          = var.gcs_bucket_name
+  location      = var.location
   force_destroy = true
 
   lifecycle_rule {
@@ -26,4 +27,8 @@ resource "google_storage_bucket" "demo-bucket" {
       type = "AbortIncompleteMultipartUpload"
     }
   }
+}
+
+resource "google_bigquery_dataset" "demo_dataset" {
+  dataset_id = var.bq_dataset_name
 }
