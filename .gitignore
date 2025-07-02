@@ -40,3 +40,9 @@ terraform.rc
 
 docker_sql/ny_taxi_postres_data/
 
+*.csv.gz
+*.csv
+*.parquet
+*.jsonl
+*.log
+
