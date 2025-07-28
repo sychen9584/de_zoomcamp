@@ -37,6 +37,7 @@ override.tf.json
 terraform.rc
 
 *.json
+*.duckdb
 
 docker_sql/ny_taxi_postres_data/
 
